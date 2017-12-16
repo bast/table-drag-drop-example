@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+  <meta charset="utf-8" />
+  <title>example</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container" ng-controller="mycontroller">
+    <table>
+      <tr ng-repeat="row in rows track by $index">
+        <td ng-repeat="column in columns track by $index">
+          <div class="mycell"
+               ui-draggable="true"
+               drag="{{ array[row][column] }}"
+               drag-channel="a"
+               drop-channel="a"
+               ui-on-drop="onDrop({{ row }}, {{ column }}, $data)"
+               drop-validate="dropValidate({{ row }}, {{ column }}, $data)">
+	       {{ array[row][column] }}
+          </div>
+        </td>
+      </td>
+    </table>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+  <script src="script.js"></script>
+  <script src="draganddrop.js"></script>
+</body>
+
+</html>
